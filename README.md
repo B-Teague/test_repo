@@ -1,1 +1,1 @@
-See Glitch branch.
+See the glitch branch.
