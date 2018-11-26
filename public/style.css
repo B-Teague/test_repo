@@ -1,87 +1,66 @@
-/* styles */
-/* called by your view template */
-
-/* You might want to try something fancier: */
-/* less: http://lesscss.org/ */
-
-* {
-  box-sizing: border-box;
-}
-
 body {
-  font-family: helvetica, arial, sans-serif;
-  margin: 25px;
+  font-family: 'Itim', sans-serif;
+  font-size: 1.25em;
+  margin: 25px 15px;
+  background-color: #7686AF;
 }
 
-h1 {
-  font-weight: bold;
-  color: blue;
-}
-
-blockquote {
-    padding: 10px;
-      box-shadow: 0 0 6px rgba(0,0,0,0.5);
-}
-
-.bold {
-  font-weight: bold;
-}
-
-p {
-  max-width: 600px;
-}
-
-form {
-  margin-bottom: 25px;
+header {
+  text-align: center;
+  background-image: linear-gradient(to bottom right, #FFFFFF, #AEF2E3);
+  border-radius: 10px;
+  margin-bottom: 0px;
   padding: 15px;
-  background-color: cyan;
-  display: inline-block;
-  width: 100%;
-  max-width: 340px;
-  border-radius: 3px;
+  font-size: 1.5em;
+  box-shadow: 5px 5px 10px 0px rgba(0,0,0,1);
 }
 
-input {
+section {
+  background-image: linear-gradient(to bottom right, #FFFFFF, #ABCDEF);
+  padding: 10px 20px;
+  margin: 20px 0px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px 0px rgba(0,0,0,1);
+}
+
+label{
   display: block;
-  margin-bottom: 10px;
-  padding: 5px;
-  width: 100%;
-  border: 1px solid lightgrey;
-  border-radius: 3px;
-  font-size: 16px;
 }
 
-button {
-  font-size: 16px;
-  border-radius: 3px;
-  background-color: lightgrey;
-  border: 1px solid grey;
-  box-shadow: 2px 2px teal;
-  cursor: pointer;
+input{
+  font-family: 'Itim', sans-serif;
+  font-size: 1.25em;
+  border-radius: 10px;
+  display: block;
+  cursor: initial;
+  margin: 10px 0px;
 }
 
-button:hover {
-  background-color: yellow;
+button{
+  font-family: 'Itim', sans-serif;
+  font-size: 1.25em;
+  display: block;
+  background-image: linear-gradient(#FFFFFF, #AAAAAA);
+  border-radius: 999px;
+  border: none;
 }
 
-button:active {
-  box-shadow: none;
+h2 {
+ margin: 10px 0px; 
 }
 
-li {
-  margin-bottom: 5px;
+p, code {
+  padding-left: 40px;
+  display: block;
+  word-wrap: break-word;
 }
 
-footer {
-  margin-top: 50px;
-  padding-top: 25px;
-  border-top: 1px solid lightgrey;
+article {
+  margin: 0px auto;
 }
 
-footer > a {
-  color: #BBBBBB;
-}
-
-.nicejob {
-  text-decoration: line-through;
+@media only screen and (orientation: landscape) {
+  article {
+    max-width: 750px;
+  }
 }
