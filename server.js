@@ -1,46 +1,18 @@
-// server.js
-// where your node app starts
+const express = require('express');
+const app = express();
+const cors = require('cors');
+const timestampRoute = require(__dirname + '/routes/timestampRoute');
+const indexRoute = require(__dirname + '/routes/index');
+const notFoundHandler = require(__dirname + '/middleware/notFoundHandler');
+const errorHandler = require(__dirname + '/middleware/errorHandler');
 
-// init project
-var express = require('express');
-var app = express();
-
-// we've started you off with Express, 
-// but feel free to use whatever libs or frameworks you'd like through `package.json`.
-
-// http://expressjs.com/en/starter/static-files.html
+app.use(cors());
 app.use(express.static('public'));
+app.use("/api/timestamp", timestampRoute);
+app.use('/', indexRoute);
+app.use(notFoundHandler);
+app.use(errorHandler);
 
-// http://expressjs.com/en/starter/basic-routing.html
-app.get("/", function (request, response) {
-  response.sendFile(__dirname + '/views/index.html');
-});
-
-// get request for all parameters after base URL
-app.get("/*", function (request, response) {
-  var date = {
-  "unix": null,
-  "natural": null
-};
-  var month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-  let path = decodeURIComponent(request.path.substring(1, request.path.length));
-  if(isNaN(path)){
-    let unixDate = Date.parse(path) / 1000;
-    if(!isNaN(unixDate)){
-      date.unix = unixDate;
-      date.natural = path;
-    }
-  }
-  else {
-    let naturalDate = new Date(parseInt(path) * 1000);
-    date.unix = path;
-    date.natural = month[naturalDate.getMonth()] + " "
-     + naturalDate.getDate() + ", " + naturalDate.getFullYear();
-  }
-  response.send(date);
-});
-
-// listen for requests :)
 var listener = app.listen(process.env.PORT, function () {
   console.log('Your app is listening on port ' + listener.address().port);
 });
